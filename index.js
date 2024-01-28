@@ -71,6 +71,9 @@ const newspapers = [
 const articles = []
 
 
+app.get('/', (req, res) => {
+  res.json('Welcome')
+})
 
 newspapers.forEach(newspaper => {
   axios.get(newspaper.address)
@@ -92,11 +95,6 @@ newspapers.forEach(newspaper => {
       })
 })
 
-
-
-app.get('/', (req, res) => {
-  res.json('Welcome')
-})
 
 app.get('/news', (req, res) => {
   res.json(articles)
