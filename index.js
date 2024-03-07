@@ -71,9 +71,27 @@ const newspapers = [
 const articles = []
 
 
+const availableNewspapers = [
+  "cityam",
+  "thetimes",
+  "guardian",
+  "telegraph",
+  "nyt",
+  "latimes",
+  "smh",
+  "bbc",
+  "es",
+  "sun",
+  "dm",
+  "nyp",
+]
+
+
 app.get('/', (req, res) => {
-  res.json('Welcome')
+  const welcomeMessage = "Welcome, add /news/newspapername in the URL querystring and these are the available newspapers: " +  availableNewspapers.join(', /') ;
+  res.json(welcomeMessage);
 })
+
 
 newspapers.forEach(newspaper => {
   axios.get(newspaper.address)
